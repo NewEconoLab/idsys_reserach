@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.572
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eventserver", "eventserver\eventserver.csproj", "{CA633483-0267-4AA2-9CA7-DE15F089F20C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dapp_acclib", "dapp_acclib\dapp_acclib.csproj", "{98C883F2-5ED6-4660-AF0B-8ECC8642EEA0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CA633483-0267-4AA2-9CA7-DE15F089F20C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA633483-0267-4AA2-9CA7-DE15F089F20C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA633483-0267-4AA2-9CA7-DE15F089F20C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA633483-0267-4AA2-9CA7-DE15F089F20C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98C883F2-5ED6-4660-AF0B-8ECC8642EEA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98C883F2-5ED6-4660-AF0B-8ECC8642EEA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98C883F2-5ED6-4660-AF0B-8ECC8642EEA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98C883F2-5ED6-4660-AF0B-8ECC8642EEA0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BD94EDC9-8E6D-4466-968B-7F8186BD7462}
+	EndGlobalSection
+EndGlobal
