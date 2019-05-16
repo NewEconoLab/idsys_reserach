@@ -16,7 +16,7 @@ namespace dapp_nnc
 
         public static object Main(string method, object[] args)
         {
-            var magicstr = "acclib 20190516";
+            var magicstr = "acclib ver 0.04_20190516";
 
             if (Runtime.Trigger == TriggerType.Verification)//取钱才会涉及这里
             {
@@ -34,7 +34,7 @@ namespace dapp_nnc
                 //this is in nep5
                 if (method == "name")
                 {
-                    return name();
+                    return magicstr;
                 }
                 if (method == "create")
                 {
@@ -76,10 +76,7 @@ namespace dapp_nnc
 
             return false;
         }
-        static string name()
-        {
-            return "account library";
-        }
+
         static byte[] getkey(byte[] id)
         {
             return _get(id);
@@ -98,7 +95,7 @@ namespace dapp_nnc
         }
         static bool create(byte[] id, byte[] pubkey)
         {
-            if (id.Length != 0)
+            if (id.Length == 0)
                 return false;
             //neo pubkey = 33
             if (pubkey.Length != 33)
@@ -113,7 +110,7 @@ namespace dapp_nnc
         }
         static bool updatekey(byte[] id, byte[] newpubkey)
         {
-            if (id.Length != 0)
+            if (id.Length == 0)
                 return false;
             //neo pubkey = 33
             if (newpubkey.Length != 33)
