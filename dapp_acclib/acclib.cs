@@ -98,7 +98,10 @@ namespace dapp_nnc
         }
         static bool create(byte[] id, byte[] pubkey)
         {
-            if (id.Length != 20 || pubkey.Length != 32)
+            if (id.Length != 0)
+                return false;
+            //neo pubkey = 33
+            if (pubkey.Length != 33)
                 return false;
             //已存在不能创建两次
             var expubkey = getkey(id);
@@ -110,6 +113,11 @@ namespace dapp_nnc
         }
         static bool updatekey(byte[] id, byte[] newpubkey)
         {
+            if (id.Length != 0)
+                return false;
+            //neo pubkey = 33
+            if (newpubkey.Length != 33)
+                return false;
             //验证旧的密码
             var scripthash = getkey_scripthash(id);
             if (!Runtime.CheckWitness(scripthash))
