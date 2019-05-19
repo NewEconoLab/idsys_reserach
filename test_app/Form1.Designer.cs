@@ -37,10 +37,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
-            this.listView1 = new System.Windows.Forms.ListView();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
+            this.list_info = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // text_id
@@ -61,6 +61,7 @@
             this.button1.TabIndex = 1;
             this.button1.Text = "Create NeoID";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // label1
             // 
@@ -129,15 +130,6 @@
             this.button3.Text = "reset password";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // listView1
-            // 
-            this.listView1.Location = new System.Drawing.Point(48, 426);
-            this.listView1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(878, 280);
-            this.listView1.TabIndex = 9;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            // 
             // button4
             // 
             this.button4.Location = new System.Drawing.Point(994, 28);
@@ -168,15 +160,24 @@
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.Button6_Click);
             // 
+            // list_info
+            // 
+            this.list_info.FormattingEnabled = true;
+            this.list_info.ItemHeight = 24;
+            this.list_info.Location = new System.Drawing.Point(48, 403);
+            this.list_info.Name = "list_info";
+            this.list_info.Size = new System.Drawing.Size(892, 316);
+            this.list_info.TabIndex = 13;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1788, 746);
+            this.Controls.Add(this.list_info);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.listView1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label3);
@@ -205,10 +206,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.ListBox list_info;
     }
 }
 
