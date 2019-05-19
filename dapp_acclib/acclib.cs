@@ -13,7 +13,6 @@ namespace dapp_nnc
         /*存储结构有     
          * map(rootid,pubkeyid)   账号=>pubkey
         */
-
         public static object Main(string method, object[] args)
         {
             var magicstr = "acclib ver 0.04_20190516";
@@ -56,15 +55,24 @@ namespace dapp_nnc
                     byte[] id = (byte[])args[0];
                     return getkey_scripthash(id);
                 }
-                if (method == "checkkey")//登陆
-                {
-                    if (args.Length != 1) return false;
-                    byte[] id = (byte[])args[0];
-                    var scripthash = getkey_scripthash(id);
-                    if (!Runtime.CheckWitness(scripthash))
-                        return false;
-                    return true;
-                }
+                //verify need opcode Verify,that is  not include in 2.7.3
+                //可以分两步验证
+                //if (method == "verify")//登陆
+                //{
+                //    if (args.Length != 3) return false;
+                //    byte[] id = (byte[])args[0];
+                //    byte[] callmsg = (byte[])args[1];
+                //    byte[] signdata = (byte[])args[2];
+
+                //    var pubkey = getkey(id);
+                //    if (!Neo.SmartContract.Framework.SmartContract.VerifySignature(
+                //        callmsg, signdata, pubkey
+                //        )
+                //        )
+                //        return false;
+
+                //    return true;
+                //}
                 if (method == "updatekey")//改密码
                 {
                     if (args.Length != 2) return false;
