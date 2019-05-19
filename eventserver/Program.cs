@@ -18,11 +18,13 @@ namespace eventserver
 
         //checkkey
 
-       //updatekey 需要构造特别交易，无法用neoray测试了
+        //updatekey 需要构造特别交易，无法用neoray测试了
 
         //accmgr ver 0x89d71f0d96ae9538d56090d1660835d8ea5457d1
         //0.02 0xa7782e8d19d302fc32c366e31e0ca1fe67a9907a
         //0.03 0xd05b171be5c485888378bcf5c362df84995c5e92
+        //0.04b 0xd29efab1d0d686588f5ac312348b5e9c65e3c829
+
         //id server 是一個server，我可以在這上面申請一個ID
         //這個ID 有一個RootKey，可以被改變
         //這個ID 有一個RootID，不會改變，ID確定，就確定
