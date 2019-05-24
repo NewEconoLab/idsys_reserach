@@ -16,72 +16,41 @@ namespace dapp_nnc
         public static object Main(string method, object[] args)
         {
             var magicstr = "acclib ver 0.04_20190516";
+            //必须在入口函数取得callscript，调用脚本的函数，也会导致执行栈变化，再取callscript就晚了
+            var callscript = ExecutionEngine.CallingScriptHash;
 
-            if (Runtime.Trigger == TriggerType.Verification)//取钱才会涉及这里
+            //this is in nep5
+            if (method == "name")
             {
-                return false;
+                return magicstr;
             }
-            else if (Runtime.Trigger == TriggerType.VerificationR)
+            if (method == "create")
             {
-                return true;
+                if (args.Length != 2) return false;
+                byte[] id = (byte[])args[0];
+                byte[] pubkey = (byte[])args[1];//a pubkey
+
+                return create(id, pubkey);
             }
-            else if (Runtime.Trigger == TriggerType.Application)
+            if (method == "getkey")//得到key，用于进一步验证，比如转账验证
             {
-                //必须在入口函数取得callscript，调用脚本的函数，也会导致执行栈变化，再取callscript就晚了
-                var callscript = ExecutionEngine.CallingScriptHash;
-
-                //this is in nep5
-                if (method == "name")
-                {
-                    return magicstr;
-                }
-                if (method == "create")
-                {
-                    if (args.Length != 2) return false;
-                    byte[] id = (byte[])args[0];
-                    byte[] pubkey = (byte[])args[1];//a pubkey
-
-                    return create(id, pubkey);
-                }
-                if (method == "getkey")//得到key，用于进一步验证，比如转账验证
-                {
-                    if (args.Length != 1) return false;
-                    byte[] id = (byte[])args[0];
-                    return getkey(id);
-                }
-                if (method == "getkey_scripthash")//得到key对应的scripthash
-                {
-                    if (args.Length != 1) return false;
-                    byte[] id = (byte[])args[0];
-                    return getkey_scripthash(id);
-                }
-                //verify need opcode Verify,that is  not include in 2.7.3
-                //可以分两步验证
-                //if (method == "verify")//登陆
-                //{
-                //    if (args.Length != 3) return false;
-                //    byte[] id = (byte[])args[0];
-                //    byte[] callmsg = (byte[])args[1];
-                //    byte[] signdata = (byte[])args[2];
-
-                //    var pubkey = getkey(id);
-                //    if (!Neo.SmartContract.Framework.SmartContract.VerifySignature(
-                //        callmsg, signdata, pubkey
-                //        )
-                //        )
-                //        return false;
-
-                //    return true;
-                //}
-                if (method == "updatekey")//改密码
-                {
-                    if (args.Length != 2) return false;
-                    byte[] id = (byte[])args[0];
-                    byte[] pubkey = (byte[])args[1];
-                    return updatekey(id, pubkey);
-                }
+                if (args.Length != 1) return false;
+                byte[] id = (byte[])args[0];
+                return getkey(id);
             }
-
+            if (method == "getkey_scripthash")//得到key对应的scripthash
+            {
+                if (args.Length != 1) return false;
+                byte[] id = (byte[])args[0];
+                return getkey_scripthash(id);
+            }
+            if (method == "updatekey")//改密码
+            {
+                if (args.Length != 2) return false;
+                byte[] id = (byte[])args[0];
+                byte[] pubkey = (byte[])args[1];
+                return updatekey(id, pubkey);
+            }
             return false;
         }
 
